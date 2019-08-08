@@ -56,9 +56,9 @@ metadata:
   namespace: default
 spec:
   scaleTargetRef:
-  apiVersion: apps/v1
-  kind: Deployment
-  name: train-schedule-deployment-monitoring
+    apiVersion: apps/v1
+    kind: Deployment
+    name: train-schedule-deployment-monitoring
   minReplicas: 1
   maxReplicas: 4
   metrics:
