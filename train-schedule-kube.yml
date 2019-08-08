@@ -20,7 +20,7 @@ kind: Deployment
 metadata:
   name: train-schedule-deployment-monitoring
   labels:
-    app: train-schedule-monitoring
+    app: train-schedule
 spec:
   replicas: 2
   selector:
