@@ -36,10 +36,40 @@ spec:
         image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
         - containerPort: 8080
+<<<<<<< HEAD
         livenessProbe:
+=======
+	livenessProbe:
+>>>>>>> parent of 94ce83f... deleting self-healing
           httpGet:
             path: /
             port: 8080
           initialDelaySeconds: 15
           timeoutSeconds: 1
           periodSeconds: 10
+<<<<<<< HEAD
+=======
+	resources:
+	  requests:
+	    cpu: 200m
+
+---
+
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: train-schedule-monitoring
+  namespace: default
+spec:
+  scaleTargetRef:
+  apiVersion: apps/v1
+  kind: Deployment
+  name: train-schedule-deployment-monitoring
+  minReplicas: 1
+  maxReplicas: 4
+  metrics:
+  - type: Resources
+    resources:
+      name: cpu
+      targetAverageUtilization:50
+>>>>>>> parent of 94ce83f... deleting self-healing
