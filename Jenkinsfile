@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        //be sure to replace "willbla" with your own Docker Hub username
-        DOCKER_IMAGE_NAME = "willbla/train-schedule"
+        //be sure to replace "luisconcepcion18" with your own Docker Hub username
+        DOCKER_IMAGE_NAME = "luisconcepcion18/train-schedule-monitoring"
     }
     stages {
         stage('Build') {
@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(DOCKER_IMAGE_NAME)
+                    app = docker.build(DOCKER_IMAGE_NAME) //Create and tag image with the name luisconcepcion18/train-schedule-monitoring using the Dockerfile in the repository
                     app.inside {
                         sh 'echo Hello, World!'
                     }
@@ -45,7 +45,8 @@ pipeline {
             steps {
                 input 'Deploy to Production?'
                 milestone(1)
-                kubernetesDeploy(
+                //implement Kubernetes deployment here
+		kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
