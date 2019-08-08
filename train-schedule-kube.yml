@@ -55,7 +55,7 @@ metadata:
   name: train-schedule-monitoring
   namespace: default
 spec:
-  scaleTargetRef:
+  scaleRef:
     apiVersion: apps/v1
     kind: Deployment
     name: train-schedule-deployment-monitoring
