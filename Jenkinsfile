@@ -18,7 +18,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(DOCKER_IMAGE_NAME) //Create and tag image with the name luisconcepcion18/train-schedule-monitoring using the Dockerfile in the repository
+                    app = docker.build(DOCKER_IMAGE_NAME) //Create and tag image with the name luisconcepcion18/train-schedule-monitoring using the Dockerfile in the repository 
                     app.inside {
                         sh 'echo Hello, World!'
                     }
